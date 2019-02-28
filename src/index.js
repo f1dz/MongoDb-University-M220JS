@@ -17,7 +17,7 @@ maximum connection pool size to 50 active connections.
 Ticket: Timeouts
 
 Please prevent the program from waiting indefinitely by setting the write
-concern timeout limit to 2500 milliseconds.
+concern timeout limit to 2500 milliseconds. maxPoolSize
 */
 
 MongoClient.connect(
@@ -26,7 +26,7 @@ MongoClient.connect(
   // Set the poolSize to 50 connections.
   // TODO: Timeouts
   // Set the write timeout limit to 2500 milliseconds.
-  { useNewUrlParser: true },
+  { poolSize: 50, wtimeout: 2500, useNewUrlParser: true },
 )
   .catch(err => {
     console.error(err.stack)
